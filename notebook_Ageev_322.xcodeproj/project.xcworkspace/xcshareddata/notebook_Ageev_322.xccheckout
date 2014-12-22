@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7A25FC68-1150-4EBF-B19A-64D009D29807</string>
+	<key>IDESourceControlProjectName</key>
+	<string>notebook_Ageev_322</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1DD41CE54DC9C2519082DAA6555B4B94B926FE32</key>
+		<string>github.com:La1c/notebook_Ageev.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>notebook_Ageev_322.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1DD41CE54DC9C2519082DAA6555B4B94B926FE32</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:La1c/notebook_Ageev.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1DD41CE54DC9C2519082DAA6555B4B94B926FE32</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1DD41CE54DC9C2519082DAA6555B4B94B926FE32</string>
+			<key>IDESourceControlWCCName</key>
+			<string>notebook_Ageev_322</string>
+		</dict>
+	</array>
+</dict>
+</plist>

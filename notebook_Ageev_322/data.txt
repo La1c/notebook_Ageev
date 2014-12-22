@@ -1,0 +1,10 @@
+b 4
+c 5
+d 6
+e 7
+f 8
+g 9
+abc 1
+bbc 2
+cbc 3
+dbc 4
