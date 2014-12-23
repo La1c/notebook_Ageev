@@ -1,1 +1,2 @@
-void interface();
+#include "controller.h"
+void interface(DB *& mydb);

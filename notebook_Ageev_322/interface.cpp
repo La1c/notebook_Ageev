@@ -1,5 +1,4 @@
 #include "interface.h"
-#include "controller.h"
 #include <cstdlib>
 #include <cstdio>
 #include <ctype.h>
@@ -13,7 +12,7 @@ bool CheckData(const char *name)
     return true;
 }
 
-void interface()
+void interface(DB *& myDB)
 {
     printf("Hello!\n");
     int option = 1;
@@ -55,7 +54,7 @@ void interface()
                         scanf("%s", phone_buff);
                     }
                     
-                    addToDB(given_name, atoi(phone_buff));
+                    addToDB(myDB, given_name, atoi(phone_buff));
                     printf("\nDone!\n");
                 }
             }
@@ -74,7 +73,7 @@ void interface()
                             scanf("%s",given_name);
                         }
                 
-                    List * was_found = findInDB(given_name);
+                    List * was_found = findInDB(myDB, given_name);
                     if (was_found)
                     {
                         print(was_found);
@@ -102,7 +101,7 @@ void interface()
                         scanf("%s",given_name);
                     }
                     
-                    bool was_deleted = deleteFromDB(given_name);
+                    bool was_deleted = deleteFromDB(myDB, given_name);
                     if (was_deleted)
                     {
                         printf("Entry was removed correctly!\n");
@@ -118,7 +117,7 @@ void interface()
                 
             case 0:
                 printf("Bye!");
-                dbDown();
+                dbDown(myDB);
                 return;
                 break;
             default:
