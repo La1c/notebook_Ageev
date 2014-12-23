@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <ctype.h>
+#include <stdio.h>
 
 bool CheckData(const char *name)
 {
@@ -12,7 +13,7 @@ bool CheckData(const char *name)
     return true;
 }
 
-void interface(DB *& myDB)
+void interface(DB & myDB)
 {
     printf("Hello!\n");
     int option = 1;
