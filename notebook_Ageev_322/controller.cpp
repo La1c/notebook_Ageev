@@ -16,6 +16,16 @@ void dbDown()
         printToFile(myls, data);
     }
     fclose(data);
+    List * cur_to_be_deleted = nullptr;
+    
+    while (myls)
+    {
+        cur_to_be_deleted = myls;
+        myls = myls -> next;
+        delete[] cur_to_be_deleted -> name;
+        delete cur_to_be_deleted;
+    }
+    
 }
 
 //Loading from file

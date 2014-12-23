@@ -115,7 +115,7 @@ TEST(Remove, Last)
     
     remove(myls, "Third Name");
     EXPECT_FALSE(find(myls, "Third Name"));
-    EXPECT_TRUE(!myls -> next -> next);
+    EXPECT_FALSE(myls -> next -> next);
 }
 
 //Adding than removing 100 elements
