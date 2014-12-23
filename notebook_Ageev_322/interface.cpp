@@ -13,7 +13,7 @@ bool CheckData(const char *name)
     return true;
 }
 
-void Interface()
+void interface()
 {
     printf("Hello!\n");
     int option = 1;
@@ -55,7 +55,7 @@ void Interface()
                         scanf("%s", phone_buff);
                     }
                     
-                    AddToDB(given_name, atoi(phone_buff));
+                    addToDB(given_name, atoi(phone_buff));
                     printf("\nDone!\n");
                 }
             }
@@ -74,10 +74,10 @@ void Interface()
                             scanf("%s",given_name);
                         }
                 
-                    List * was_found = FindInDB(given_name);
+                    List * was_found = findInDB(given_name);
                     if (was_found)
                     {
-                        Print(was_found);
+                        print(was_found);
                     }
                     else
                     {
@@ -102,7 +102,7 @@ void Interface()
                         scanf("%s",given_name);
                     }
                     
-                    bool was_deleted = DeleteFromDB(given_name);
+                    bool was_deleted = deleteFromDB(given_name);
                     if (was_deleted)
                     {
                         printf("Entry was removed correctly!\n");
@@ -118,7 +118,7 @@ void Interface()
                 
             case 0:
                 printf("Bye!");
-                DBDown();
+                dbDown();
                 return;
                 break;
             default:

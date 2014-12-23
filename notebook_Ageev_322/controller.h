@@ -1,7 +1,7 @@
 #include "list.h"
-List * FindInDB(const char *seeked_name);
-void AddToDB(const char *new_name, unsigned int new_number);
-void FindWithMask();
-bool DeleteFromDB(const char *name_to_delete);
-void DBDown();
-void Print(List * ls);
+List * findInDB(const char *seeked_name);
+void addToDB(const char *new_name, unsigned int new_number);
+void findWithMask();
+bool deleteFromDB(const char *name_to_delete);
+void dbDown();
+void print(List * ls);

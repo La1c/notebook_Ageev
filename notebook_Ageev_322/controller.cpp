@@ -8,18 +8,18 @@ FILE * data = nullptr;
 List * myls = nullptr;
 
 //Saving to file
-void DBDown()
+void dbDown()
 {
     data = fopen("data.txt", "w");
     if(data)
     {
-        PrintToFile(myls, data);
+        printToFile(myls, data);
     }
     fclose(data);
 }
 
 //Loading from file
-void DBUp()
+void dbUp()
 {
     data = fopen("data.txt", "r");
     if(data)
@@ -29,37 +29,37 @@ void DBUp()
         
         while(fscanf(data, "%s%d\n", name_from_file, &number_from_file) == 2)
         {
-            Add(myls, name_from_file, number_from_file);
+            add(myls, name_from_file, number_from_file);
         }
     }
     fclose(data);
 }
 
-List * FindInDB(const char *seeked_name)
+List * findInDB(const char *seeked_name)
 {
-   return AddvancedFind(myls, seeked_name);
+   return wildcardFind(myls, seeked_name);
 }
 
-void AddToDB(const char *new_name, unsigned int new_number)
+void addToDB(const char *new_name, unsigned int new_number)
 {
-    Add(myls, new_name, new_number);
+    add(myls, new_name, new_number);
 }
 
 
-bool DeleteFromDB(const char *name_to_delete)
+bool deleteFromDB(const char *name_to_delete)
 {
-   return Remove(myls, name_to_delete);
+   return remove(myls, name_to_delete);
 }
 
-void Print(List * ls)
+void print(List * ls)
 {
-    PrintList(ls);
+    printList(ls);
 }
 
 int main(int argc, char ** argv)
 {
     run_all_tests(argc, argv);
-    DBUp();
-    Interface();
+    dbUp();
+    interface();
     return 0;
 }

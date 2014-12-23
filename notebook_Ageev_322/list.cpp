@@ -5,7 +5,7 @@
 //DB entry -- List is defined in the .h file
 
 
-bool CheckMask(const char * str_with_mask, const char * str_to_check)
+bool checkMask(const char * str_with_mask, const char * str_to_check)
 {
     if (strlen(str_with_mask) == strlen(str_to_check))
     {
@@ -24,7 +24,7 @@ bool CheckMask(const char * str_with_mask, const char * str_to_check)
     return false;
 }
 
-List * Find (List *ls, const char *name_to_find)
+List * find (List *ls, const char *name_to_find)
 {
     List *cur = ls;
     
@@ -40,7 +40,7 @@ List * Find (List *ls, const char *name_to_find)
 }
 
 
-void Add(List *&ls, const char *new_name, unsigned int new_phone)
+void add(List *&ls, const char *new_name, unsigned int new_phone)
 {
     if(!ls) //if ls is empty
     {
@@ -82,7 +82,7 @@ void Add(List *&ls, const char *new_name, unsigned int new_phone)
 }
 
 
-bool Remove(List *&ls, const char * name_to_delete)
+bool remove(List *&ls, const char * name_to_delete)
 {
     List *cur = ls;
     
@@ -111,7 +111,7 @@ bool Remove(List *&ls, const char * name_to_delete)
     return false;
 }
 
-void PrintToFile (List *&ls, FILE * fl)
+void printToFile (List *&ls, FILE * fl)
 {
     if(ls -> name)
     {
@@ -124,7 +124,7 @@ void PrintToFile (List *&ls, FILE * fl)
     }
 }
 
-void PrintList(List * ls)
+void printList(List * ls)
 {
     List * cur = ls;
     while (cur)
@@ -134,15 +134,15 @@ void PrintList(List * ls)
     }
 }
 
-List * AddvancedFind (List * given_list, const char * name_to_find)
+List * wildcardFind (List * given_list, const char * name_to_find)
 {
     List *cur = given_list;
     List * buff_list = nullptr;
     while (cur)
     {
-        if (CheckMask(name_to_find, cur -> name))
+        if (checkMask(name_to_find, cur -> name))
         {
-            Add(buff_list, cur -> name, cur -> phone_number);
+            add(buff_list, cur -> name, cur -> phone_number);
         }
         cur = cur -> next;
     }

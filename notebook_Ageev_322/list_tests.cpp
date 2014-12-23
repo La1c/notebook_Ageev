@@ -7,18 +7,18 @@
 TEST(AddAndFind, AddSomething)
 {
     List * myls = nullptr;
-    Add(myls, "Some Name", 100);
-    List * was_found = Find(myls, "Some Name");
+    add(myls, "Some Name", 100);
+    List * was_found = find(myls, "Some Name");
     EXPECT_TRUE(was_found);
     EXPECT_TRUE((strcmp(was_found -> name, "Some Name") == 0) && was_found -> phone_number == 100);
     
-    Add(myls, "Another Name", 200);
-    was_found = Find(myls, "Another Name");
+    add(myls, "Another Name", 200);
+    was_found = find(myls, "Another Name");
     EXPECT_TRUE(was_found);
     EXPECT_TRUE((strcmp(was_found -> name, "Another Name") == 0) && was_found -> phone_number == 200);
     
-    Add(myls, "Some Name", 300);
-    was_found = Find(myls, "Some Name");
+    add(myls, "Some Name", 300);
+    was_found = find(myls, "Some Name");
     EXPECT_TRUE(was_found);
     EXPECT_TRUE((strcmp(was_found -> name, "Some Name") == 0) && was_found -> phone_number == 300);
 }
@@ -37,7 +37,7 @@ TEST(AddAndFind, Add100)
         
         while(fscanf(data, "%s\n", name_from_file) == 1)
         {
-            Add(myls, name_from_file, i);
+            add(myls, name_from_file, i);
              ++i;
         }
     }
@@ -50,7 +50,7 @@ TEST(AddAndFind, Add100)
         
         while(fscanf(data, "%s\n", name_from_file) == 1)
         {
-            was_found = Find(myls, name_from_file);
+            was_found = find(myls, name_from_file);
             EXPECT_TRUE(was_found);
             EXPECT_TRUE((strcmp(was_found -> name, name_from_file) == 0) && was_found -> phone_number == i);
             ++i;
@@ -63,7 +63,7 @@ TEST(AddAndFind, Add100)
 TEST(Find, FindEmpty)
 {
     List *myls = nullptr;
-    EXPECT_TRUE(!Find(myls, "Name"));
+    EXPECT_FALSE(find(myls, "Name"));
 }
 
 //Let's try to find something not in the list
@@ -71,11 +71,11 @@ TEST(Find, DoesntExist)
 {
     List * myls = nullptr;
   
-    Add(myls, "Some Name", 100);
-    Add(myls, "Another Name", 200);
-    Add(myls, "Third Name", 300);
+    add(myls, "Some Name", 100);
+    add(myls, "Another Name", 200);
+    add(myls, "Third Name", 300);
     
-    EXPECT_TRUE(!Find(myls, "Super Man"));
+    EXPECT_FALSE(find(myls, "Super Man"));
 }
 
 //Removing head and checking a new one
@@ -83,12 +83,12 @@ TEST(Remove, Head)
 {
     List * myls = nullptr;
     
-    Add(myls, "Some Name", 100);
-    Add(myls, "Another Name", 200);
-    Add(myls, "Third Name", 300);
+    add(myls, "Some Name", 100);
+    add(myls, "Another Name", 200);
+    add(myls, "Third Name", 300);
     
-    Remove(myls, "Some Name");
-    EXPECT_TRUE(!Find(myls, "Some Name"));
+    remove(myls, "Some Name");
+    EXPECT_FALSE(find(myls, "Some Name"));
     EXPECT_TRUE(strcmp(myls -> name, "Another Name") == 0);
 }
 //Removing the seond element
@@ -96,12 +96,12 @@ TEST(Remove, Middle)
 {
     List * myls = nullptr;
     
-    Add(myls, "Some Name", 100);
-    Add(myls, "Another Name", 200);
-    Add(myls, "Third Name", 300);
+    add(myls, "Some Name", 100);
+    add(myls, "Another Name", 200);
+    add(myls, "Third Name", 300);
     
-    Remove(myls, "Another Name");
-    EXPECT_TRUE(!Find(myls, "Another Name"));
+    remove(myls, "Another Name");
+    EXPECT_FALSE(find(myls, "Another Name"));
     EXPECT_TRUE(strcmp(myls -> next -> name, "Third Name") == 0);
 }
 //Removing the last element
@@ -109,12 +109,12 @@ TEST(Remove, Last)
 {
     List * myls = nullptr;
     
-    Add(myls, "Some Name", 100);
-    Add(myls, "Another Name", 200);
-    Add(myls, "Third Name", 300);
+    add(myls, "Some Name", 100);
+    add(myls, "Another Name", 200);
+    add(myls, "Third Name", 300);
     
-    Remove(myls, "Third Name");
-    EXPECT_TRUE(!Find(myls, "Third Name"));
+    remove(myls, "Third Name");
+    EXPECT_FALSE(find(myls, "Third Name"));
     EXPECT_TRUE(!myls -> next -> next);
 }
 
@@ -131,7 +131,7 @@ TEST(Remove, BigTest)
         
         while(fscanf(data, "%s\n", name_from_file) == 1)
         {
-            Add(myls, name_from_file, i);
+            add(myls, name_from_file, i);
             ++i;
         }
     }
@@ -143,14 +143,14 @@ TEST(Remove, BigTest)
         
         while(fscanf(data, "%s\n", name_from_file) == 1)
         {
-            Remove(myls, name_from_file);
+            remove(myls, name_from_file);
             //delete successful
-            EXPECT_TRUE(!Find(myls, name_from_file));
+            EXPECT_FALSE(find(myls, name_from_file));
         }
     }
     fclose(data);
     //everything should be deleted
-    EXPECT_TRUE(!myls);
+    EXPECT_FALSE(myls);
 }
 
 int run_all_tests(int argc, char **argv)
