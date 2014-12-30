@@ -3,7 +3,7 @@
 
 struct DB
 {
-    List * ls;
+  List * ls;
 };
 List * findInDB(DB & mydb, const char *seeked_name);
 void addToDB(DB & mydb, const char *new_name, unsigned int new_number);

@@ -2,9 +2,9 @@
 #pragma once
 struct List
 {
-    char * name;
-    unsigned phone_number;
-    List * next;
+  char * name;
+  unsigned phone_number;
+  List * next;
 };
 List * find(List * ls, char const * name_to_find);
 void add(List *& ls, char const * new_name, unsigned new_phone);
