@@ -1,6 +1,11 @@
-#include "list.h"
+/*#include "list.h"
 #include <ctype.h>
 #include <string.h>
+#include <map>
+#include <string>
+#include <fstream>
+using std::string;
+using std::map;
 
 //DB entry -- List is defined in the .h file
 
@@ -104,17 +109,11 @@ bool remove(List *&ls, const char * name_to_delete)
   return false;
 }
 
-void printToFile (List *&ls, FILE * fl)
+void printToFile (map <string,int> &m, string fl)
 {
-  if (ls -> name)
-  {
-    List * cur = ls;
-    while (cur)
-    {
-      fprintf(fl, "%s %d\n", cur -> name, cur -> phone_number);
-      cur = cur -> next;
-    }
-  }
+    std::ofstream fout;
+    fout.open(fl);
+    for(auto const &e: m) fout << e . first << " " << e.second << std::endl;
 }
 
 void printList(List * ls)
@@ -140,4 +139,4 @@ List * wildcardFind (List * given_list, const char * name_to_find)
     cur = cur -> next;
   }
   return buff_list;
-}
+}*/

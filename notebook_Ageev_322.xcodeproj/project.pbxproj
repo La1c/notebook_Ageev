@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E79D1A7A1A39C81100D0C7D2 /* controller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E79D1A791A39C81100D0C7D2 /* controller.cpp */; };
-		E79D1A851A39C97600D0C7D2 /* list.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E79D1A831A39C97600D0C7D2 /* list.cpp */; };
 		E79D1A881A39C98400D0C7D2 /* interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E79D1A861A39C98400D0C7D2 /* interface.cpp */; };
-		E7C8649C1A482AE600402D46 /* list_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7C8649A1A482AE600402D46 /* list_tests.cpp */; };
+		E7C8649C1A482AE600402D46 /* tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E7C8649A1A482AE600402D46 /* tests.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,13 +27,11 @@
 /* Begin PBXFileReference section */
 		E79D1A761A39C81100D0C7D2 /* notebook_Ageev_322 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = notebook_Ageev_322; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79D1A791A39C81100D0C7D2 /* controller.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = controller.cpp; sourceTree = "<group>"; };
-		E79D1A831A39C97600D0C7D2 /* list.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = list.cpp; sourceTree = "<group>"; };
-		E79D1A841A39C97600D0C7D2 /* list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list.h; sourceTree = "<group>"; };
 		E79D1A861A39C98400D0C7D2 /* interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = interface.cpp; sourceTree = "<group>"; };
 		E79D1A871A39C98400D0C7D2 /* controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = controller.h; sourceTree = "<group>"; };
 		E7C864991A46405C00402D46 /* interface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = interface.h; sourceTree = "<group>"; };
-		E7C8649A1A482AE600402D46 /* list_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = list_tests.cpp; sourceTree = "<group>"; };
-		E7C8649B1A482AE600402D46 /* list_tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = list_tests.h; sourceTree = "<group>"; };
+		E7C8649A1A482AE600402D46 /* tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tests.cpp; sourceTree = "<group>"; };
+		E7C8649B1A482AE600402D46 /* tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tests.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +66,10 @@
 			children = (
 				E79D1A791A39C81100D0C7D2 /* controller.cpp */,
 				E79D1A871A39C98400D0C7D2 /* controller.h */,
-				E7C8649A1A482AE600402D46 /* list_tests.cpp */,
-				E7C8649B1A482AE600402D46 /* list_tests.h */,
+				E7C8649A1A482AE600402D46 /* tests.cpp */,
+				E7C8649B1A482AE600402D46 /* tests.h */,
 				E79D1A861A39C98400D0C7D2 /* interface.cpp */,
 				E7C864991A46405C00402D46 /* interface.h */,
-				E79D1A831A39C97600D0C7D2 /* list.cpp */,
-				E79D1A841A39C97600D0C7D2 /* list.h */,
 			);
 			path = notebook_Ageev_322;
 			sourceTree = "<group>";
@@ -136,9 +131,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E79D1A881A39C98400D0C7D2 /* interface.cpp in Sources */,
-				E7C8649C1A482AE600402D46 /* list_tests.cpp in Sources */,
+				E7C8649C1A482AE600402D46 /* tests.cpp in Sources */,
 				E79D1A7A1A39C81100D0C7D2 /* controller.cpp in Sources */,
-				E79D1A851A39C97600D0C7D2 /* list.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +239,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -264,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

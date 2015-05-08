@@ -1,4 +1,4 @@
-#include <cstdio>
+/*#include <cstdio>
 #pragma once
 struct List
 {
@@ -11,4 +11,4 @@ void add(List *& ls, char const * new_name, unsigned new_phone);
 bool remove(List *& ls, char const * name_to_delete);
 void printToFile (List *& ls, FILE * fl);
 List * wildcardFind (List * given_list, const char * name_to_find);
-void printList(List * ls);
+void printList(List * ls);*/
