@@ -1,5 +1,4 @@
 #include "interface.h"
-#include <utility>
 #include <string>
 #include <cstdio>
 #include <memory>
@@ -81,9 +80,9 @@ void interface(DB & myDB)
            }
                 
            auto was_found = myDB.findInDB(given_name);
-           if (was_found->size())
+           if (was_found.size())
            {
-              for (auto &e: *was_found) cout << e.first << " " << e.second << std::endl;
+              for (auto &e: was_found) cout << e.first << " " << e.second << std::endl;
            }
            else
            {

@@ -3,7 +3,6 @@
 #include "gtest.h"
 #include <fstream>
 #include <string>
-#include <utility>
 
 using std::string;
 using std::ifstream;
@@ -14,15 +13,15 @@ TEST(AddAndFind, AddSomething)
     DB myDB;
     myDB.addToDB("Some Name", 100);
     auto was_found = myDB.findInDB("Some Name");
-    EXPECT_TRUE((*was_found)["Some Name"] == 100);
+    EXPECT_TRUE(was_found["Some Name"] == 100);
 
     myDB.addToDB("Another Name", 200);
     was_found = myDB.findInDB("Another Name");
-    EXPECT_TRUE((*was_found)["Another Name"] == 200);
+    EXPECT_TRUE(was_found["Another Name"] == 200);
     
     myDB.addToDB("Some Name", 300);
     was_found = myDB.findInDB("Some Name");
-    EXPECT_TRUE((*was_found)["Some Name"] == 300);
+    EXPECT_TRUE(was_found["Some Name"] == 300);
 }
 
 //Let's try to add 100 elements and find each of them
@@ -53,7 +52,7 @@ TEST(AddAndFind, Add100)
     while (fin >> name_from_file)
     {
       auto was_found = myDB.findInDB(name_from_file);
-      EXPECT_TRUE((*was_found)[name_from_file] == i);
+      EXPECT_TRUE(was_found[name_from_file] == i);
       ++i;
     }
   }
@@ -63,7 +62,7 @@ TEST(AddAndFind, Add100)
 TEST(Find, FindEmpty)
 {
   DB myDB;
-  EXPECT_FALSE((*myDB.findInDB("Name"))["Name"]);
+  EXPECT_FALSE(myDB.findInDB("Name")["Name"]);
 }
 
 //Let's try to find something not in the list
@@ -75,7 +74,7 @@ TEST(Find, DoesntExist)
   myDB.addToDB("Another Name", 200);
   myDB.addToDB("Third Name", 300);
     
-  EXPECT_FALSE((*myDB.findInDB("Super Man"))["Super Man"]);
+  EXPECT_FALSE(myDB.findInDB("Super Man")["Super Man"]);
 }
 
 //Adding than removing 100 elements
@@ -106,7 +105,7 @@ TEST(Remove, BigTest)
     {
         myDB.deleteFromDB(name_from_file);
       //delete successful
-      EXPECT_FALSE((*myDB.findInDB(name_from_file))[name_from_file]);
+      EXPECT_FALSE(myDB.findInDB(name_from_file)[name_from_file]);
     }
   }
   //everything should be deleted

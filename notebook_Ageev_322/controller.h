@@ -1,4 +1,3 @@
-#include <utility>
 #include <memory>
 #include <map>
 #include <string>
@@ -7,7 +6,6 @@
 
 using std::map;
 using std::string;
-using std::pair;
 using std::cin;
 using std::cout;
 using std::shared_ptr;
@@ -54,10 +52,10 @@ public:
     
     bool deleteFromDB(string name_to_delete)
     {
-        return  (mData.erase(name_to_delete) == 1);
+        return  (mData.erase(name_to_delete));
     }
     
-    shared_ptr<map<string, unsigned int>> findInDB(string seeked_name) //wildcard search
+    map<string, unsigned int> findInDB(string seeked_name) //wildcard search
     {
         map<string, unsigned int> mapToReturn;
         for(auto &e: mData)
@@ -67,7 +65,7 @@ public:
                 mapToReturn[e.first] = e.second;
             }
         }
-        return std::make_shared<map<string, unsigned int>>(mapToReturn);
+        return mapToReturn;
     }
 
     void print()
@@ -84,7 +82,7 @@ private:
     map<string, unsigned int> mData;
     
     //checking if current name fits the mask
-    bool checkMask(const string str_with_mask, const string str_to_check)
+   static bool checkMask(const string &str_with_mask, const string &str_to_check)
     {
         if (str_with_mask.length() == str_to_check.length())
         {
