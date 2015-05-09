@@ -3,7 +3,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-
+#include <algorithm>
+#include <utility>
 using std::map;
 using std::string;
 using std::cin;
@@ -55,7 +56,7 @@ public:
         return  (mData.erase(name_to_delete));
     }
     
-    map<string, unsigned int> findInDB(string seeked_name) //wildcard search
+    auto findInDB(string seeked_name) //wildcard search
     {
         map<string, unsigned int> mapToReturn;
         for(auto &e: mData)
@@ -65,6 +66,8 @@ public:
                 mapToReturn[e.first] = e.second;
             }
         }
+       //std::copy_if(mData.begin(), mData.end(), mapToReturn.begin(), [&](auto it){return checkMask(seeked_name, it.first);});
+        //std::copy_if(mData.begin(), mData.end(), mapToReturn.begin(), [&](std::pair<string, unsigned int> it){return checkMask(seeked_name, it.first);});
         return mapToReturn;
     }
 
@@ -94,6 +97,7 @@ private:
                     return false;
                 }
             }
+            //if(std::any_of(str_with_mask.begin(), str_with_mask.end(), ????))
             return true;
         }
         return false;
