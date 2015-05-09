@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <vector>
 #include <utility>
 using std::map;
 using std::string;
@@ -58,17 +59,10 @@ public:
     
     auto findInDB(string seeked_name) //wildcard search
     {
-        map<string, unsigned int> mapToReturn;
-        for(auto &e: mData)
-        {
-            if (checkMask(seeked_name, e.first)) //checking if current name fits the mask
-            {
-                mapToReturn[e.first] = e.second;
-            }
-        }
-       //std::copy_if(mData.begin(), mData.end(), mapToReturn.begin(), [&](auto it){return checkMask(seeked_name, it.first);});
-        //std::copy_if(mData.begin(), mData.end(), mapToReturn.begin(), [&](std::pair<string, unsigned int> it){return checkMask(seeked_name, it.first);});
-        return mapToReturn;
+
+        std::vector<std::pair<string, unsigned int>> vectorToReturn;
+        std::copy_if(mData.begin(), mData.end(), std::back_inserter(vectorToReturn), [&](auto it){return checkMask(seeked_name, it.first);});
+        return vectorToReturn;
     }
 
     void print()

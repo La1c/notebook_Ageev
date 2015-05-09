@@ -3,25 +3,39 @@
 #include "gtest.h"
 #include <fstream>
 #include <string>
+#include <algorithm>
+#include <utility>
 
 using std::string;
 using std::ifstream;
 using std::map;
+using std::find;
+using std::make_pair;
+using myPair = std::pair<string, unsigned int>;
+
 //Adding, finding, and changing
 TEST(AddAndFind, AddSomething)
 {
     DB myDB;
     myDB.addToDB("Some Name", 100);
     auto was_found = myDB.findInDB("Some Name");
-    EXPECT_TRUE(was_found["Some Name"] == 100);
+    myPair p = make_pair("Some Name", 100);
+    auto found = find(was_found.begin(), was_found.end(), p);
+    EXPECT_TRUE((*found).first == "Some Name" && (*found).second == 100);
 
     myDB.addToDB("Another Name", 200);
     was_found = myDB.findInDB("Another Name");
-    EXPECT_TRUE(was_found["Another Name"] == 200);
+    p = make_pair("Another Name", 200);
+    found = find(was_found.begin(), was_found.end(), p);
+    
+    EXPECT_TRUE((*found).first == "Another Name" && (*found).second == 200);
     
     myDB.addToDB("Some Name", 300);
     was_found = myDB.findInDB("Some Name");
-    EXPECT_TRUE(was_found["Some Name"] == 300);
+    p = make_pair("Some Name", 300);
+    found = find(was_found.begin(), was_found.end(), p);
+    
+    EXPECT_TRUE((*found).first == "Some Name" && (*found).second == 300);
 }
 
 //Let's try to add 100 elements and find each of them
@@ -52,7 +66,9 @@ TEST(AddAndFind, Add100)
     while (fin >> name_from_file)
     {
       auto was_found = myDB.findInDB(name_from_file);
-      EXPECT_TRUE(was_found[name_from_file] == i);
+      myPair p = make_pair(name_from_file, i);
+      auto found = find(was_found.begin(), was_found.end(), p);
+      EXPECT_TRUE((*found).first == name_from_file && (*found).second == i);
       ++i;
     }
   }
@@ -62,7 +78,7 @@ TEST(AddAndFind, Add100)
 TEST(Find, FindEmpty)
 {
   DB myDB;
-  EXPECT_FALSE(myDB.findInDB("Name")["Name"]);
+    EXPECT_FALSE(myDB.findInDB("Name").size());
 }
 
 //Let's try to find something not in the list
@@ -74,7 +90,7 @@ TEST(Find, DoesntExist)
   myDB.addToDB("Another Name", 200);
   myDB.addToDB("Third Name", 300);
     
-  EXPECT_FALSE(myDB.findInDB("Super Man")["Super Man"]);
+ EXPECT_FALSE(myDB.findInDB("Super Man").size());
 }
 
 //Adding than removing 100 elements
@@ -104,8 +120,8 @@ TEST(Remove, BigTest)
     while (fin >> name_from_file)
     {
         myDB.deleteFromDB(name_from_file);
-      //delete successful
-      EXPECT_FALSE(myDB.findInDB(name_from_file)[name_from_file]);
+      //delete successfuly
+      EXPECT_FALSE(myDB.findInDB(name_from_file).size());
     }
   }
   //everything should be deleted
